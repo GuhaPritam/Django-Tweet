@@ -6,7 +6,7 @@ Before you start, make sure you have the following installed on your system:
 - **pip** (Usually comes with Python, but you can install/update it using `python -m ensurepip --default-pip`)
 - **Virtual Environment** (Optional but recommended, install using `pip install virtualenv`)
 
-### Setting Up a Django Project
+# Setting Up a Django Project
 
 Follow these steps to set up your Django project:
 
