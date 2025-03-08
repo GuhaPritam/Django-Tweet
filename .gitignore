@@ -1,0 +1,33 @@
+# Python Cache Files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment Folder (venv)
+.venv/
+env/
+venv/
+
+# Django Migration Files (Generated Automatically)
+migrations/
+*/migrations/*.pyc
+
+# Database File (Local SQLite Database)
+db.sqlite3
+*.db
+
+# IDE & Editor Files (VS Code, PyCharm, etc.)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs & Debugging Files
+*.log
+*.bak
+*.tmp
+
+# Static & Media Files (Optional)
+staticfiles/
+media/
+
