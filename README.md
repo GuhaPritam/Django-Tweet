@@ -1,4 +1,4 @@
-### Prerequisites
+# Prerequisites
 
 Before you start, make sure you have the following installed on your system:
 
@@ -54,7 +54,13 @@ cd tweet
 pip freeze > requirements.txt
 ```
 
-#### 8️⃣ Run the Development Server
+#### 8️⃣ Run Database Migrations
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+#### 9️⃣ Run the Development Server
 ```sh
 python manage.py runserver
 ```
