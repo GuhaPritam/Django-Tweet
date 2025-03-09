@@ -70,6 +70,8 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+
+
 # Creating a Superuser
 
 #### 9️⃣ Create a Superuser
@@ -86,6 +88,8 @@ python manage.py runserver
 
 Your Django project should now be running! Open `http://127.0.0.1:8000/` in your browser to check.
 
+
+
 # Updating `settings.py`
 
 Ensure you have the following lines in `settings.py` to configure **`MEDIA_URL`** and **`STATIC_URL`** files properly:
@@ -100,7 +104,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
 
-# Configuring usrls.py for Media Files
+# Updating `urls.py`
 
 To serve media files during development, update your `urls.py` file:
 
