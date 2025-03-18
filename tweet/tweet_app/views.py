@@ -25,7 +25,7 @@ def tweet_create(request):
     return render(request, 'tweet_form.html', {'form': form})
 
 
-def edit_tweet(request, tweet_id):
+def tweet_edit(request, tweet_id):
     tweet = get_object_or_404(Tweet, pk=tweet_id, user=request.user)
     if request.method == "POST":
         form = TweetForm(request.POST, request.FILES)
