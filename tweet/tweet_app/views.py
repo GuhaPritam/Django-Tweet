@@ -2,6 +2,7 @@ from os import name
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Tweet
 from .forms import TweetForm
+from django.contrib import messages
 
 def index(request):
     return render(request, 'index.html')
@@ -19,8 +20,10 @@ def tweet_create(request):
             tweet = form.save(commit=False)
             tweet.user = request.user
             tweet.save()
+            messages.success(request, "Your tweet has been updated successfully!")
             return redirect('tweet_list')
         else:
+            messages.error(request, "Please upload the image!")
             return render(request, 'tweet_form.html', {'form': form})
     else:
         form = TweetForm()
