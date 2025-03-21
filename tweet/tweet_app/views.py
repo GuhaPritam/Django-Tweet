@@ -20,6 +20,8 @@ def tweet_create(request):
             tweet.user = request.user
             tweet.save()
             return redirect('tweet_list')
+        else:
+            return render(request, 'tweet_form.html', {'form': form})
     else:
         form = TweetForm()
     return render(request, 'tweet_form.html', {'form': form})

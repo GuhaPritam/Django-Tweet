@@ -2,6 +2,7 @@
 
 {% block content %}
   <h1 class="text-center mt-4">This is a Tweet App</h1>
+
   <h2>
     {% if form.instance.pk %}
       Edit Tweet
@@ -9,10 +10,18 @@
       Create Tweet
     {% endif %}
   </h2>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Error:</strong> {{ form.errors.photo.0 }}
+    </div>
+  {% endif %}
+
   <form method="post" enctype="multipart/form-data" class="form">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-warning" type="submit">Submit</button>
   </form>
-  <a href="{% url 'tweet_list' %}">Back to tweet list</a>
+
+  <a href="{% url 'tweet_list' %}" class="btn btn-secondary mt-3">Back to tweet list</a>
 {% endblock %}
