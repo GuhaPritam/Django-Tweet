@@ -8,6 +8,7 @@ class TweetForm(forms.ModelForm):
         
     def clean_photo(self):
         photo = self.cleaned_data.get('photo')
+        text = self.cleaned_data.get('text')
         if not photo:
             raise forms.ValidationError("\u200B")
         return photo 
