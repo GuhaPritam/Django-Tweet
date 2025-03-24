@@ -1,21 +1,48 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-  <h1 class="text-center mt-4">This is a Tweet App</h1>
+  <div class="container mt-3" style="height: 80vh; display: flex; flex-direction: column; justify-content: space-between;">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg p-4" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+          <h1 class="text-center text-primary fw-bold">🚀 Tweet App</h1>
 
-  <h2>
-    {% if form.instance.pk %}
-      Edit Tweet
-    {% else %}
-      Create Tweet
-    {% endif %}
-  </h2>
+          <h2 class="text-center {% if form.instance.pk %} text-warning {% else %} text-success {% endif %} fw-bold">
+            {% if form.instance.pk %}
+              ✏️ Edit Your Tweet
+            {% else %}
+              📝 Create a New Tweet
+            {% endif %}
+          </h2>
 
-  <form method="post" enctype="multipart/form-data" class="form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-warning" type="submit">Submit</button>
-  </form>
+          <form method="post" enctype="multipart/form-data" style="flex-grow: 1; overflow-y: auto;">
+            {% csrf_token %}
 
-  <a href="{% url 'tweet_list' %}" class="btn btn-secondary mt-3">Back to tweet list</a>
+            {% for field in form %}
+              <div class="mb-4">
+                <h5 class="fw-bold text-start">{{ field.label }}</h5>  
+                <div class="border-bottom border-secondary" style="width: 100px; height: 2px; margin-bottom: 10px;"></div> 
+                <div class="w-100">
+                  <div class="d-flex justify-content-start">
+                    <div class="ms-3" style="max-width: 90%;"> 
+                      {{ field }}
+                    </div>
+                  </div>
+                </div>
+                
+                {% if field.help_text %}
+                  <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+              </div>
+            {% endfor %}
+
+            <button class="btn btn-warning w-100 fw-bold mt-3" type="submit">🚀 Submit</button>
+          </form>
+          <div class="text-center mt-3">
+            <a href="{% url 'tweet_list' %}" class="btn btn-secondary">⬅️ Back to tweet list</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
