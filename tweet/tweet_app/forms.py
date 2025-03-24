@@ -15,7 +15,7 @@ class TweetForm(forms.ModelForm):
             raise forms.ValidationError("\u200B")
         return photo 
 
-class UseRejistrationForm(UserCreationForm):
+class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField()
     class Meta:
         model = User
