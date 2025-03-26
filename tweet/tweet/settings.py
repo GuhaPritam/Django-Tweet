@@ -34,7 +34,7 @@ SECRET_KEY = 'django-insecure-4*cxp4h7^+^^21(+ml%4@pcw15w1x0vm1nsdpv-&-rm4y19o^^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-tweet-lilac.vercel.app', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
